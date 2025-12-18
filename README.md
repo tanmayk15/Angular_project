@@ -6,7 +6,6 @@ A modern, full-featured expense tracking application built with Angular 18+ that
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat&logo=typescript)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-## 📸 Screenshot
 
 ![Expense Tracker Application](screenshots/Screenshot%202025-12-18%20185138.png)
 
@@ -185,14 +184,6 @@ For questions or feedback, please open an issue in the repository.
 
 ---
 
-**Built with ❤️ using Angular**
+**Built using Angular**
 
-```bash
-ng e2e
 ```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
