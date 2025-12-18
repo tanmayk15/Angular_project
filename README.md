@@ -1,140 +1,191 @@
-# Expense Tracker Application
+# 💰 Expense Tracker
 
-## Project Overview
+A modern, full-featured expense tracking application built with Angular 18+ that helps you manage your finances and visualize spending patterns through interactive charts.
 
-The Expense Tracker is a modern Angular-based web application designed to help users record, manage, and analyze their daily expenses. The application allows users to add, view, edit, and delete expenses, and also provides graphical visualizations to understand spending patterns over time.
+![Angular](https://img.shields.io/badge/Angular-18+-DD0031?style=flat&logo=angular)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat&logo=typescript)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-This project demonstrates core Angular concepts such as component-based architecture, reactive forms, state management using services, and dynamic data visualization using charts.
+## 📸 Screenshot
 
-## Features
+![Expense Tracker Application](screenshots/Screenshot%202025-12-18%20185138.png)
 
-### Expense Management (CRUD Operations)
-- Add new expenses with title, amount, category, and date
-- Edit existing expenses using a pre-filled form
-- Delete expenses with confirmation
-- Display all expenses in a structured table
-- Automatic calculation of total expenses
+## ✨ Features
 
-### Form Validation
-- All fields are mandatory
-- Amount must be greater than zero
-- Date selection does not allow future dates
-- User-friendly validation messages are displayed in real time
+### 📝 Expense Management
+- **Create** new expenses with title, amount, category, and date
+- **Edit** existing expenses with pre-populated form
+- **Delete** expenses with confirmation dialog
+- **Validate** form inputs (required fields, minimum values)
+- **Date restriction** - prevents future date selection
 
-### Data Visualization
-- Bar chart visualization of expenses
-- Multiple chart views:
-  - Category-wise expense totals
-  - Daily expense totals
-  - Monthly category-wise expense comparison
-  - Yearly category-wise expense comparison
-- Charts update automatically whenever expense data changes
-- Consistent category colors across table and charts
+### 📊 Data Visualization
+- **Category View** - Bar chart showing total expenses by category
+- **Daily View** - Bar chart showing expenses grouped by date
+- **Monthly View** - Grouped bar chart showing category breakdown per month
+- **Yearly View** - Grouped bar chart showing category breakdown per year
+- **Interactive Charts** - Built with ngx-charts library
+- **Consistent Colors** - Category-specific color scheme across all views
 
-### User Interface
-- Clean and modern dark-themed user interface
-- Responsive layout suitable for desktop screens
-- Real-time synchronization between form, table, and charts
-- Easy-to-use and readable design
+### 🎨 User Interface
+- **Dark Theme** - Modern dark UI with #0a0a0a background
+- **Responsive Design** - Three-section layout optimized for desktop
+- **Real-time Updates** - Automatic chart and table synchronization
+- **Custom Scrollbars** - Styled scrollbars for better aesthetics
+- **Modern Typography** - Poppins font for headings, Open Sans for body
 
-### Category System
-The application uses predefined categories:
-- Food (Orange)
-- Travel (Blue)
-- Rent (Red)
-- Shopping (Purple)
-- Other (Gray)
+### 📦 Category System
+- 🍔 **Food** - Orange (#ffb84d)
+- ✈️ **Travel** - Blue (#5fc3e4)
+- 🏠 **Rent** - Red (#ff6b6b)
+- 🛍️ **Shopping** - Purple (#a893ff)
+- 📌 **Other** - Gray (#b8b8d1)
 
-Each category is visually distinguished using a consistent color scheme.
-
-## Technologies Used
-- Angular 18 or later
-- TypeScript
-- RxJS BehaviorSubject for state management
-- Reactive Forms module for form handling and validation
-- ngx-charts for data visualization
-- HTML and CSS for layout and styling
-- Google Fonts for typography
-
-## Application Architecture
-
-### Expense Service
-- Acts as a central data store
-- Manages all expense data in memory
-- Provides methods for create, read, update, and delete operations
-- Uses BehaviorSubject to notify components of data changes
-- Supplies processed data for charts
-
-### Expense Form Component
-- Handles adding and editing expenses
-- Uses reactive forms with validators
-- Displays validation errors clearly
-- Supports both create and update functionality in a single form
-
-### Expense Table Component
-- Displays all expenses in tabular format
-- Provides edit and delete actions
-- Shows category labels and total expense calculation
-
-### Expense Chart Component
-- Displays bar charts based on expense data
-- Supports multiple view modes
-- Automatically updates when expense data changes
-
-## How Data Is Managed
-
-The application stores expense data in memory using an Angular service. This means:
-- Data is available during the current session
-- Data is lost when the browser is refreshed
-
-This approach keeps the project frontend-focused and simple. The architecture is designed so that a backend API or database can be added later without major changes.
-
-## How to Run the Project
+## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js version 18 or higher
-- npm version 9 or higher
-- Angular CLI version 18 or higher
+- Node.js (v18 or higher)
+- npm (v9 or higher)
+- Angular CLI (v18 or higher)
 
-### Steps to Run
-1. Clone the repository
-2. Install dependencies using `npm install`
-3. Start the development server using `ng serve`
-4. Open the application in a browser at `http://localhost:4200`
+### Installation
 
-The application reloads automatically when changes are made to the source code.
+1. **Clone the repository**
+```bash
+git clone <repository-url>
+cd expense-tracker
+```
 
-## Build for Production
+2. **Install dependencies**
+```bash
+npm install
+```
 
-To create a production build, run:
+3. **Start development server**
+```bash
+ng serve
+```
+
+4. **Open in browser**
+Navigate to `http://localhost:4200/`
+
+The application will automatically reload when you modify source files.
+
+## 🏗️ Project Structure
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── expense-form/       # Add/Edit expense form
+│   │   ├── expense-table/      # Expense list with actions
+│   │   └── expense-chart/      # Interactive visualizations
+│   ├── models/
+│   │   └── expense.model.ts    # Expense interface & categories
+│   ├── services/
+│   │   └── expense.service.ts  # State management with BehaviorSubject
+│   ├── app.ts                  # Main app component
+│   ├── app.html                # Main app template
+│   └── app.css                 # Main app styles
+├── index.html                  # HTML entry point
+└── styles.css                  # Global styles
+
+```
+
+## 🛠️ Technologies
+
+- **Framework**: Angular 18+ (Standalone Components)
+- **Language**: TypeScript 5.0+
+- **State Management**: RxJS BehaviorSubject
+- **Charts**: @swimlane/ngx-charts
+- **Forms**: Reactive Forms with Validators
+- **Styling**: CSS3 with custom properties
+- **Fonts**: Google Fonts (Poppins, Open Sans)
+
+## 📱 Component Architecture
+
+### ExpenseService
+- Centralized state management using BehaviorSubject
+- CRUD operations (Create, Read, Update, Delete)
+- Data aggregation methods for charts
+- 20 pre-loaded dummy expenses for demo
+
+### ExpenseForm Component
+- Reactive form with validation
+- Add new or edit existing expenses
+- Date picker with max date constraint
+- Real-time error messages
+
+### ExpenseTable Component
+- Displays all expenses in tabular format
+- Edit and delete actions
+- Category badges with color coding
+- Total amount calculation
+- Sticky header and custom scrollbar
+
+### ExpenseChart Component
+- Four view modes (Category, Daily, Monthly, Yearly)
+- Dynamic chart data updates
+- Consistent color scheme
+- Grouped bar charts for time-based views
+- Legend for multi-category views
+
+## 🎯 Key Features Explained
+
+### Reactive State Management
+The application uses RxJS BehaviorSubject for reactive state management. When any expense is added, updated, or deleted, all subscribed components automatically receive the updated data and re-render.
+
+### Chart Synchronization
+Charts automatically update when expenses change. The service emits new data through an Observable, and the chart component subscribes to these changes, ensuring real-time visualization updates.
+
+### Color Consistency
+All categories maintain consistent colors across:
+- Table category badges
+- Chart visualizations (all view modes)
+- Grouped bar segments
+
+### Form Validation
+- Title: Required
+- Amount: Required, minimum value 1
+- Category: Required selection
+- Date: Required, cannot be future date
+
+## 📊 Chart View Modes
+
+1. **Category View**: Shows total expenses per category
+2. **Daily View**: Shows total expenses per day
+3. **Monthly View**: Grouped bar chart showing category breakdown for each month
+4. **Yearly View**: Grouped bar chart showing category breakdown for each year
+
+## 🔧 Building for Production
 
 ```bash
 ng build --configuration production
 ```
 
-The optimized build files will be generated in the dist directory.
+Build artifacts will be stored in the `dist/` directory, optimized for performance.
 
-## Testing
-
-Unit tests can be executed using:
+## 🧪 Running Tests
 
 ```bash
 ng test
 ```
 
-End-to-end testing is not configured by default and can be added later if required.
+## 📝 License
 
-## Upcoming Enhancements (Future Scope)
-- Persistent storage using LocalStorage or backend database
-- User authentication and login system
-- Monthly budget limits and alerts
-- Export expenses to CSV or PDF
-- Mobile-friendly responsive layout
-- Backend integration using REST APIs
+This project is licensed under the MIT License.
 
-## Conclusion
+## 🤝 Contributing
 
-This Expense Tracker application is a complete Angular CRUD project that combines form handling, data management, and data visualization. It is suitable for academic assignments, portfolio projects, and interview demonstrations, as it clearly showcases modern Angular development practices.
+Contributions, issues, and feature requests are welcome!
+
+## 📧 Contact
+
+For questions or feedback, please open an issue in the repository.
+
+---
+
+**Built with ❤️ using Angular**
 
 ```bash
 ng e2e
