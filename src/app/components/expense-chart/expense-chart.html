@@ -1,0 +1,75 @@
+<div class="expense-chart-container">
+  <div class="chart-header">
+    <h2>Expense Visualization</h2>
+    <div class="view-selector">
+      <button 
+        class="view-btn" 
+        [class.active]="viewMode === 'category'"
+        (click)="changeViewMode('category')">
+        By Category
+      </button>
+      <button 
+        class="view-btn" 
+        [class.active]="viewMode === 'day'"
+        (click)="changeViewMode('day')">
+        Daily
+      </button>
+      <button 
+        class="view-btn" 
+        [class.active]="viewMode === 'month'"
+        (click)="changeViewMode('month')">
+        Monthly
+      </button>
+      <button 
+        class="view-btn" 
+        [class.active]="viewMode === 'year'"
+        (click)="changeViewMode('year')">
+        Yearly
+      </button>
+    </div>
+  </div>
+  
+  <div class="chart-wrapper" *ngIf="chartData.length > 0; else noData">
+    <!-- Grouped bar chart for monthly and yearly views -->
+    <ngx-charts-bar-vertical-2d
+      *ngIf="viewMode === 'month' || viewMode === 'year'"
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="chartData"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [legendTitle]="'Categories'"
+      [groupPadding]="8"
+      (select)="onSelect($event)">
+    </ngx-charts-bar-vertical-2d>
+    
+    <!-- Regular bar chart for category and daily views -->
+    <ngx-charts-bar-vertical
+      *ngIf="viewMode === 'category' || viewMode === 'day'"
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="chartData"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      (select)="onSelect($event)">
+    </ngx-charts-bar-vertical>
+  </div>
+
+  <ng-template #noData>
+    <div class="no-data">
+      <p>No data to display. Add some expenses to see the chart!</p>
+    </div>
+  </ng-template>
+</div>

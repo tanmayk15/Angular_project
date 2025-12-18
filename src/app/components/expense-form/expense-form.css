@@ -1,0 +1,143 @@
+.expense-form-container {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: none;
+  height: 100%;
+  border: none;
+}
+
+.expense-form-container h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 400;
+  color: #cccccc;
+  font-size: 13px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+  background: #0f0f0f;
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #555555;
+  background: #0f0f0f;
+  box-shadow: none;
+}
+
+.form-control.invalid {
+  border-color: #ff4444;
+  background: #0f0f0f;
+}
+
+.form-control::placeholder {
+  color: #666666;
+}
+
+/* Date input styling - white calendar icon */
+input[type="date"].form-control {
+  color-scheme: white;
+}
+
+input[type="date"].form-control::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+select.form-control {
+  cursor: pointer;
+}
+
+select.form-control option {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 11px;
+  margin-top: 5px;
+  font-weight: 400;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.btn-primary {
+  background: #2d8659;
+  color: white;
+  box-shadow: none;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background: #333333;
+  color: #ffffff;
+  border: none;
+}
+
+.btn-secondary:hover {
+  opacity: 0.9;
+  background: #444444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .expense-form-container {
+    padding: 20px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,87 @@
+.app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+header {
+  text-align: center;
+  color: #eaeaea;
+  padding: 15px 20px;
+  flex-shrink: 0;
+  background: #1a1a1a;
+  border-bottom: 2px solid #2d8659;
+}
+
+header h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #2d8659 0%, #3db872 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  text-transform: uppercase;
+}
+
+header .subtitle {
+  display: none;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.left-section {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.right-top {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.right-bottom {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+
+  header .subtitle {
+    font-size: 14px;
+  }
+}

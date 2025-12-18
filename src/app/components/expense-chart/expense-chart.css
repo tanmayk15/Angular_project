@@ -1,0 +1,102 @@
+.expense-chart-container {
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: none;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.expense-chart-container h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+
+.view-selector {
+  display: flex;
+  gap: 5px;
+}
+
+.view-btn {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  background: #0f0f0f;
+  color: #999999;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.view-btn:hover {
+  background: #222222;
+  color: #ffffff;
+}
+
+.view-btn.active {
+  background: #2d8659;
+  color: #ffffff;
+  border-color: #2d8659;
+}
+
+.chart-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 0;
+}
+
+.no-data {
+  text-align: center;
+  padding: 60px 20px;
+  color: #b8b8d1;
+}
+
+.no-data p {
+  font-size: 15px;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* Override ngx-charts default styles for dark theme */
+::ng-deep .expense-chart-container .ngx-charts text {
+  fill: #999999 !important;
+  font-size: 12px !important;
+}
+
+::ng-deep .expense-chart-container .tick line {
+  stroke: #333333 !important;
+}
+
+::ng-deep .expense-chart-container .gridline-path {
+  stroke: #2a2a2a !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .expense-chart-container {
+    padding: 15px;
+  }
+
+  .chart-wrapper {
+    overflow-x: auto;
+  }
+}

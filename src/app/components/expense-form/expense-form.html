@@ -1,0 +1,87 @@
+<div class="expense-form-container">
+  <h2>{{ isEditMode ? 'Edit Expense' : 'Add New Expense' }}</h2>
+  
+  <form [formGroup]="expenseForm" (ngSubmit)="onSubmit()">
+    <!-- Expense Title -->
+    <div class="form-group">
+      <label for="title">Expense Title *</label>
+      <input 
+        type="text" 
+        id="title" 
+        formControlName="title"
+        class="form-control"
+        [class.invalid]="isFieldInvalid('title')"
+        placeholder="Enter expense title">
+      
+      <div class="error-message" *ngIf="hasError('title', 'required')">
+        Title is required
+      </div>
+      <div class="error-message" *ngIf="hasError('title', 'minlength')">
+        Title must be at least 3 characters long
+      </div>
+    </div>
+
+    <!-- Amount -->
+    <div class="form-group">
+      <label for="amount">Amount *</label>
+      <input 
+        type="number" 
+        id="amount" 
+        formControlName="amount"
+        class="form-control"
+        [class.invalid]="isFieldInvalid('amount')"
+        placeholder="Enter amount"
+        step="0.01">
+      
+      <div class="error-message" *ngIf="hasError('amount', 'required')">
+        Amount is required
+      </div>
+      <div class="error-message" *ngIf="hasError('amount', 'min')">
+        Amount must be greater than 0
+      </div>
+    </div>
+
+    <!-- Category -->
+    <div class="form-group">
+      <label for="category">Category *</label>
+      <select 
+        id="category" 
+        formControlName="category"
+        class="form-control"
+        [class.invalid]="isFieldInvalid('category')">
+        <option value="">Select a category</option>
+        <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+      </select>
+      
+      <div class="error-message" *ngIf="hasError('category', 'required')">
+        Category is required
+      </div>
+    </div>
+
+    <!-- Date -->
+    <div class="form-group">
+      <label for="date">Date *</label>
+      <input 
+        type="date" 
+        id="date" 
+        formControlName="date"
+        class="form-control"
+        [class.invalid]="isFieldInvalid('date')"
+        [max]="maxDate">
+      
+      <div class="error-message" *ngIf="hasError('date', 'required')">
+        Date is required
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">
+        {{ isEditMode ? 'Update Expense' : 'Add Expense' }}
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="resetForm()" *ngIf="isEditMode">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,50 @@
+<div class="expense-table-container">
+  <h2>Expense List</h2>
+  
+  <div class="table-wrapper" *ngIf="expenses.length > 0; else noExpenses">
+    <table class="expense-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Amount</th>
+          <th>Category</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let expense of expenses">
+          <td>{{ expense.title }}</td>
+          <td class="amount">{{ formatAmount(expense.amount) }}</td>
+          <td>
+            <span class="category-badge" [attr.data-category]="expense.category">
+              {{ expense.category }}
+            </span>
+          </td>
+          <td>{{ formatDate(expense.date) }}</td>
+          <td class="actions">
+            <button class="btn-action btn-edit" (click)="onEdit(expense.id)" title="Edit">
+              ✏️ Edit
+            </button>
+            <button class="btn-action btn-delete" (click)="onDelete(expense.id)" title="Delete">
+              🗑️ Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="1"><strong>Total:</strong></td>
+          <td class="amount"><strong>{{ formatAmount(getTotalAmount()) }}</strong></td>
+          <td colspan="3"></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <ng-template #noExpenses>
+    <div class="no-expenses">
+      <p>No expenses yet. Add your first expense above!</p>
+    </div>
+  </ng-template>
+</div>
